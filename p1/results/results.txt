@@ -1,0 +1,59 @@
+================================================================================
+#Models arrangement:
+================================================================================
+In 'models' directory, 40 directories are created corresponding to each of the
+phonemes present in the TIMIT dataset, each of the aforementioned directories
+consists of 20 models (pickle {.pkl} files) as per the requirement.
+
+These files are:-
+
+ec_mfcc_2.pkl :- mfcc, mixtures=2, with energy coefficients
+ec_mfcc_4.pkl :- mfcc, mixtures=4, with energy coefficients
+ec_mfcc_8.pkl :- mfcc, mixtures=8, with energy coefficients
+ec_mfcc_16.pkl :- mfcc, mixtures=16, with energy coefficients
+ec_mfcc_32.pkl :- mfcc, mixtures=32, with energy coefficients
+ec_mfcc_64.pkl :- mfcc, mixtures=64, with energy coefficients
+ec_mfcc_128.pkl :- mfcc, mixtures=128, with energy coefficients
+ec_mfcc_256.pkl :- mfcc, mixtures=256, with energy coefficients
+wec_mfcc_2.pkl :- mfcc, mixtures=2, without energy coefficients
+wec_mfcc_4.pkl :- mfcc, mixtures=4, without energy coefficients
+wec_mfcc_8.pkl :- mfcc, mixtures=8, without energy coefficients
+wec_mfcc_16.pkl :- mfcc, mixtures=16, without energy coefficients
+wec_mfcc_32.pkl :- mfcc, mixtures=32, without energy coefficients
+wec_mfcc_64.pkl :- mfcc, mixtures=64, without energy coefficients
+wec_mfcc_128.pkl :- mfcc, mixtures=128, without energy coefficients
+wec_mfcc_256.pkl :- mfcc, mixtures=256, without energy coefficients
+ec_mfcc_delta.pkl :- mfcc_delta, mixtures=32, with energy coefficients
+wec_mfcc_delta.pkl :-mfcc_delta, mixtures=32, without energy coefficients
+ec_mfcc_delta_delta.pkl:-mfcc_delta_delta, mixtures=32, with energy coefficients
+wec_mfcc_delta_delta.pkl:-mfcc_delta_delta, mixtures=32, without energy coefficients
+
+================================================================================
+#Phone-wise-dump.ipynb:
+================================================================================
+A separate iPython file for phone wise dumping of training features was created,
+but due to GitHub file upload size constraints we've not uploaded  the phone-wise
+train HDF files.
+
+================================================================================
+#Accuracies and Results:
+================================================================================
+'test.py' on running prints all the frame_accuracies for every model i.e.
+mfcc (number of mixtures=[2,4,8,16,32,64,128,256], with energy coefficients),
+mfcc (number of mixtures=[2,4,8,16,32,64,128,256], without energy coefficients)
+mfcc_delta(with energy coefficients)
+mfcc_delta(without energy coefficients)
+mfcc_delta_delta(with energy coefficients)
+mfcc_delta_delta(without energy coefficients)
+Also, utterance level error rates (PER) are also resulted in the file mentioned
+below.
+Refer to accuracy.txt file.
+
+The best accuracies we attained was with MFCC_DELTA_DELTA model WITH ENERGY COEFFICIENTS,
+which implies that for the given TIMIT dataset, the energy coefficients play a
+significant role for classification.
+================================================================================
+
+Lastly some changes were made in import_timit.py to ease the flow of this project.
+Also, due to GitHub file upload size constraints, we have not uploaded the complete
+TIMIT dataset.
